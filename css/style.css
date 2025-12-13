@@ -5,18 +5,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat';
+    color: white;
 }
 
-:root {
-    --font-header: 'Sekuya', serif; /* Fallback to serif if Sekuya fails to load */
-    --font-body: 'Montserrat', sans-serif;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.3);
-    --text-white: #ffffff;
-}
 
 html {
-    scroll-behavior: smooth; /* Native smooth scrolling */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -42,7 +37,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: var(--font-body); /* Based on screenshot, logo is bold sans-serif */
+    font-family: var(--font-body);
     font-weight: 800;
     font-size: 1.5rem;
 }
@@ -53,6 +48,10 @@ body {
     gap: 30px;
 }
 
+.nav-icon {
+    width: 24px;
+    height: 24px;
+}
 .nav-links a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
@@ -66,20 +65,26 @@ body {
     color: white;
     text-decoration: underline;
     text-underline-offset: 5px;
+    font-weight: 600; /* Added this for semibold */
 }
 
 .menu-toggle {
-    display: none; /* Hidden on desktop */
+    display: none; 
     font-size: 1.5rem;
     cursor: pointer;
+    color: white;
 }
 
+.header-fonts{
+    font-family: 'Sekuya';
+}
 /* --- COMMON SECTION STYLES --- */
 .section-bg {
     width: 100%;
     min-height: 100vh;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed; /* Parallax effect */
     display: flex;
     align-items: center;
@@ -87,28 +92,39 @@ body {
     padding: 20px;
 }
 
-/* Specific Backgrounds with 50% Black Overlay */
+/* --- BACKGROUND IMAGES --- */
+
+/* 1. Home Section */
 .front-page {
-    /* Gradient puts a 50% black layer over the image */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/liad.png');
+    /* Fixed typo: iliad.png */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/iliad.png');
 }
 
+/* 2. Poetics Section */
 .poetics {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/athens.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/athens.jpg'); 
+    /* Make sure you have a poetics-bg.jpg or change this filename */
+}
+
+/* 3. Epic Section (New) */
+#epic {
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/epic-bg.jpg');
+     /* Make sure you have an epic-bg.jpg */
 }
 
 /* --- GLASSMORPHISM BOXES --- */
-.glass-container {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px); /* The blur effect */
-    -webkit-backdrop-filter: blur(10px);
-    border: var(--glass-border);
+.msg-container {
+    background: rgba(0, 0, 0, 0.45); /* 50% black */
+    border: 1px solid white;
     border-radius: 20px;
     padding: 40px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* --- HOME SECTION CONTENT --- */
+
+/* --- HOME SECTION LAYOUT (Centered) --- */
 .center-box {
     text-align: center;
     max-width: 800px;
@@ -116,7 +132,7 @@ body {
 }
 
 .center-box h1 {
-    font-family: var(--font-body); /* Screenshot shows sans-serif title here */
+    font-family: var(--font-body);
     font-weight: 700;
     font-size: 4rem;
     margin-bottom: 10px;
@@ -134,24 +150,23 @@ body {
     font-style: italic;
 }
 
-/* --- POETICS SECTION CONTENT --- */
+/* --- POETICS SECTION LAYOUT (Side-by-Side) --- */
 .content-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 1200px;
     width: 100%;
-    gap: 30px;
+    gap: 120px;
     position: relative;
 }
 
 .image-container img {
     width: 350px;
-    height: 350px;
+    height: 400px;
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid rgba(255,255,255,0.8);
-    /* Bring image slightly above the text box visually */
     z-index: 2; 
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
@@ -159,9 +174,8 @@ body {
 .text-box {
     flex: 1;
     text-align: left;
-    padding: 50px 50px 50px 80px; /* Extra left padding to account for image overlap if desired */
-    /* If you want the overlap look: */
-    margin-left: -60px; 
+    padding: 50px 50px 50px 80px; 
+    margin-left: -60px; /* Overlap effect */
     z-index: 1;
 }
 
@@ -179,38 +193,24 @@ body {
     color: rgba(255, 255, 255, 0.9);
 }
 
+#home{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 20px;
-    }
-    
-    .nav-links {
-        display: none; /* Hide links on mobile, ideally use JS to toggle */
-    }
-
-    .menu-toggle {
-        display: block;
-        color: white;
-    }
+    .navbar { padding: 20px; }
+    .nav-links { display: none; }
+    .menu-toggle { display: block; }
 
     /* Home Section Mobile */
     .center-box h1 { font-size: 2.5rem; }
     .center-box h2 { font-size: 1.5rem; }
 
     /* Poetics Section Mobile */
-    .content-wrapper {
-        flex-direction: column;
-    }
-
-    .image-container img {
-        width: 200px;
-        height: 200px;
-    }
-
-    .text-box {
-        margin-left: 0;
-        padding: 30px;
-        text-align: center;
-    }
+    .content-wrapper { flex-direction: column; }
+    .image-container img { width: 200px; height: 250px; }
+    .text-box { margin-left: 0; padding: 30px; text-align: center; }
 }

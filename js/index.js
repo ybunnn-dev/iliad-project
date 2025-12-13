@@ -4,29 +4,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-links a');
     const sections = document.querySelectorAll('section');
 
-    // 2. Add scroll event listener to update active state
+   // 2. Add scroll event listener to update active state
     window.addEventListener('scroll', () => {
         let currentSection = '';
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
             
-            // Logic: If we have scrolled 1/3rd into the section
-            if (scrollY >= (sectionTop - sectionHeight / 3)) {
-                currentSection = section.getAttribute('id');
+            // FIXED: Use a fixed offset (150px) to account for the navbar height.
+            // This ensures the switch happens exactly when the section hits the top.
+            if (window.scrollY >= (sectionTop - 150)) {
+                
+                // FIXED: Only update if the section actually has an ID.
+                // This prevents the highlight from disappearing when scrolling 
+                // through the second "Poetics" section (which has no ID).
+                if (section.getAttribute('id')) {
+                    currentSection = section.getAttribute('id');
+                }
             }
         });
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            // Check if the href matches the current section ID
+            // Check if the link's href matches the current section ID
             if (link.getAttribute('href').includes(currentSection)) {
                 link.classList.add('active');
             }
         });
     });
-
+    
     // 3. Smooth scrolling is handled by CSS (html { scroll-behavior: smooth; })
     // But if you want to force specific behavior on click, you can add this:
     navLinks.forEach(link => {
