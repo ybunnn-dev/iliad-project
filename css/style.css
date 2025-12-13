@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sekuya&display=swap');
+
+/* --- RESET & VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-header: 'Sekuya', serif; /* Fallback to serif if Sekuya fails to load */
+    --font-body: 'Montserrat', sans-serif;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.3);
+    --text-white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth; /* Native smooth scrolling */
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-white);
+    background-color: #000;
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body); /* Based on screenshot, logo is bold sans-serif */
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- COMMON SECTION STYLES --- */
+.section-bg {
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Specific Backgrounds with 50% Black Overlay */
+.front-page {
+    /* Gradient puts a 50% black layer over the image */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/liad.png');
+}
+
+.poetics {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/athens.jpg');
+}
+
+/* --- GLASSMORPHISM BOXES --- */
+.glass-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px); /* The blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    border: var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- HOME SECTION CONTENT --- */
+.center-box {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.center-box h1 {
+    font-family: var(--font-body); /* Screenshot shows sans-serif title here */
+    font-weight: 700;
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.center-box h2 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.center-box p {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* --- POETICS SECTION CONTENT --- */
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    gap: 30px;
+    position: relative;
+}
+
+.image-container img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.8);
+    /* Bring image slightly above the text box visually */
+    z-index: 2; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.text-box {
+    flex: 1;
+    text-align: left;
+    padding: 50px 50px 50px 80px; /* Extra left padding to account for image overlap if desired */
+    /* If you want the overlap look: */
+    margin-left: -60px; 
+    z-index: 1;
+}
+
+.text-box h1 {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.text-box p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+    }
+    
+    .nav-links {
+        display: none; /* Hide links on mobile, ideally use JS to toggle */
+    }
+
+    .menu-toggle {
+        display: block;
+        color: white;
+    }
+
+    /* Home Section Mobile */
+    .center-box h1 { font-size: 2.5rem; }
+    .center-box h2 { font-size: 1.5rem; }
+
+    /* Poetics Section Mobile */
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .image-container img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .text-box {
+        margin-left: 0;
+        padding: 30px;
+        text-align: center;
+    }
+}
