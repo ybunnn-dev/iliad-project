@@ -96,20 +96,31 @@ body {
 
 /* 1. Home Section */
 .front-page {
-    /* Fixed typo: iliad.png */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/iliad.png');
+    /* Fixed path: ../images/iliad.png */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/iliad.png');
 }
 
 /* 2. Poetics Section */
 .poetics {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/athens.jpg'); 
-    /* Make sure you have a poetics-bg.jpg or change this filename */
+    /* Fixed path: ../images/athens.jpg */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/athens.jpg'); 
 }
 
-/* 3. Epic Section (New) */
-#epic {
-     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/epic-bg.jpg');
-     /* Make sure you have an epic-bg.jpg */
+/* 3. Epic Section (New Class) */
+.epic-section {
+    /* Fixed path: ../images/epic-bg.jpg */
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/trojanhorse.jpg');
+}
+
+.iliad
+{
+    /* Fixed path: ../images/iliad-scroll.jpg */
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/iliad.jpg');
+}
+.plot
+{
+    /* Fixed path: ../images/plot-bg.jpg */
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/plot-bg.jpg');
 }
 
 /* --- GLASSMORPHISM BOXES --- */
@@ -150,7 +161,7 @@ body {
     font-style: italic;
 }
 
-/* --- POETICS SECTION LAYOUT (Side-by-Side) --- */
+/* --- POETICS/EPIC SECTION LAYOUT (Side-by-Side) --- */
 .content-wrapper {
     display: flex;
     align-items: center;
@@ -226,7 +237,7 @@ body {
     .center-box h1 { font-size: 2.5rem; }
     .center-box h2 { font-size: 1.5rem; }
 
-    /* Poetics Section Mobile */
+    /* Poetics/Epic Section Mobile */
     .content-wrapper { flex-direction: column; }
     .image-container img { width: 200px; height: 250px; }
     .text-box { margin-left: 0; padding: 30px; text-align: center; }
