@@ -97,18 +97,18 @@ body {
 /* 1. Home Section */
 .front-page {
     /* Fixed typo: iliad.png */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/iliad.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/iliad.png');
 }
 
 /* 2. Poetics Section */
 .poetics {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/athens.jpg'); 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/athens.jpg'); 
     /* Make sure you have a poetics-bg.jpg or change this filename */
 }
 
 /* 3. Epic Section (New) */
 #epic {
-     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/epic-bg.jpg');
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/epic-bg.jpg');
      /* Make sure you have an epic-bg.jpg */
 }
 
