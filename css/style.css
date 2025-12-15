@@ -242,3 +242,62 @@ body {
     .image-container img { width: 200px; height: 250px; }
     .text-box { margin-left: 0; padding: 30px; text-align: center; }
 }
+
+/* --- TIMELINE STYLES --- */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* The Vertical Line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 19px; /* Aligns line with the center of the dots */
+    width: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+}
+
+/* Container for each event */
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px; /* Space between events */
+    padding-left: 70px; /* Pushes text away from the line */
+}
+
+/* The Glowing Dot */
+.timeline-dot {
+    position: absolute;
+    left: 8px; /* Centers dot on the line */
+    top: 5px;  /* Aligns dot with the top of the text box */
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for fun */
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
+    background: #ffd700; /* Gold color on hover */
+}
+
+/* Overriding some msg-container defaults for the timeline layout */
+.timeline-content {
+    padding: 30px; /* Slightly less padding than the main boxes */
+}
+
+.timeline-content h3 {
+    font-family: 'Sekuya', serif; /* Using your fancy font for titles */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #ffd700; /* Gold color for titles */
+}
