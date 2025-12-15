@@ -109,18 +109,24 @@ body {
 /* 3. Epic Section (New Class) */
 .epic-section {
     /* Fixed path: ../images/epic-bg.jpg */
-     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/trojanhorse.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/trojanhorse.jpg');
 }
 
 .iliad
 {
     /* Fixed path: ../images/iliad-scroll.jpg */
-     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/iliad.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/iliad.jpg');
 }
 .plot
 {
     /* Fixed path: ../images/plot-bg.jpg */
-     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/plot-bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/plot-bg.jpg');
+}
+
+/* 4. Significance Section (NEW) */
+.significance {
+    /* Fixed path: ../images/significance-bg.jpg */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/significance-bg.jpg');
 }
 
 /* --- GLASSMORPHISM BOXES --- */
@@ -132,6 +138,47 @@ body {
     padding-top: 80px;
     padding-bottom: 80px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* *** STYLES FOR MEMBERS SECTION (Border Removal & Horizontal Layout) *** */
+#members .msg-container {
+    border: none;
+    box-shadow: none; 
+    background: transparent;
+    
+    /* Ensure content is centered, applied to the wrapper */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+/* NEW: Container to wrap the names horizontally */
+#members .name-list-wrapper {
+    /* This makes the names go horizontal */
+    display: flex; 
+    /* Centers the names in the available space */
+    justify-content: center; 
+    /* Space between names */
+    gap: 0; 
+    width: 100%; 
+    margin-top: 20px;
+}
+
+/* NEW: Styles for individual names (p elements inside name-list-wrapper) */
+#members .name-list-wrapper p {
+    margin-bottom: 0 !important; 
+    /* Padding provides the visual space between names */
+    padding: 5px 20px; 
+    font-size: 1.1rem;
+    line-height: 1; 
+    
+    /* Creates the space separation using a vertical line */
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Remove the vertical separator on the last name */
+#members .name-list-wrapper p:last-child {
+    border-right: none;
 }
 
 
@@ -163,6 +210,15 @@ body {
 
 /* --- POETICS/EPIC SECTION LAYOUT (Side-by-Side) --- */
 .content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    gap: 120px;
+    position: relative;
+}
+.Name-content-wrapper{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -212,8 +268,8 @@ body {
 
 /* Container for the sub-items (a, b, c) */
 .sub-list {
-    margin-left: 40px;  /* Indents the block */
-    margin-top: 15px;   /* Adds space above the sub-list */
+    margin-left: 40px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -274,7 +330,7 @@ body {
 .timeline-dot {
     position: absolute;
     left: 8px; /* Centers dot on the line */
-    top: 5px;  /* Aligns dot with the top of the text box */
+    top: 5px; 
     width: 25px;
     height: 25px;
     background: white;
