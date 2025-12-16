@@ -179,29 +179,61 @@ body {
     align-items: center; 
 }
 
-/* NEW: Container to wrap the names horizontally */
-#members .name-list-wrapper {
-    /* This makes the names go horizontal */
-    display: flex; 
-    /* Centers the names in the available space */
-    justify-content: center; 
-    /* Space between names */
-    gap: 0; 
-    width: 100%; 
+.poetics-sub {
+    color: rgba(255, 255, 255, 0.99); /* High contrast white */
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Adds a shadow so it pops off the background */
+}
+
+/* 2. Blog-like styling for the names */
+.name-list-wrapper {
     margin-top: 20px;
 }
 
-/* NEW: Styles for individual names (p elements inside name-list-wrapper) */
-#members .name-list-wrapper p {
-    margin-bottom: 0 !important; 
-    /* Padding provides the visual space between names */
-    padding: 5px 20px; 
-    font-size: 1.1rem;
-    line-height: 1; 
-    
-    /* Creates the space separation using a vertical line */
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
+.blog-meta {
+    font-family: 'Georgia', serif; /* Serif fonts look more "editorial/blog" like */
+    color: #e0e0e0; /* Light grey/white */
+    font-size: 1rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
+
+.byline {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #ffd700; /* Gold accent color for the "BY" tag looks premium */
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.meta-separator {
+    margin: 0 10px;
+    color: #ffd700; /* Matches the "By" color */
+}
+
+.date {
+    opacity: 0.8;
+    font-style: italic;
+}
+.separator {
+    width: 60%;
+    margin: 1.5rem auto;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Adjust color based on your design */
+}
+
+
+.name-list-wrapper p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+}
+
 
 /* Remove the vertical separator on the last name */
 #members .name-list-wrapper p:last-child {
